@@ -1,7 +1,17 @@
 def what_was_that_one_with(those_actors)
   # Find the movies starring all `those_actors` (an array of actor names).
-  # Show each movie's title and id.
+  # Show each movie's title and id
+  Movie.select(:title, :id).joins(:actors).where(actors: {name: those_actors[0]}, actors: {name: those_actors[1]})
+  #{} {name: those_actors[0]})
+    # where(
+    #   actors: {name: those_actors},
+    #   castings: {ord: 1}
+    # )
 
+#   Movie
+#     .select(:title, :id)
+#     .joins(:actors)
+#     .group(movies: {movie_id})
 end
 
 def golden_age
